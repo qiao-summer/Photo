@@ -7,12 +7,12 @@ CREATE TABLE `dept` (
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
-INSERT INTO DEPT VALUES
+INSERT INTO dept VALUES
 	(10,'ACCOUNTING','NEW YORK');
-INSERT INTO DEPT VALUES (20,'RESEARCH','DALLAS');
-INSERT INTO DEPT VALUES
+INSERT INTO dept VALUES (20,'RESEARCH','DALLAS');
+INSERT INTO dept VALUES
 	(30,'SALES','CHICAGO');
-INSERT INTO DEPT VALUES
+INSERT INTO dept VALUES
 	(40,'OPERATIONS','BOSTON');
 	
 CREATE TABLE `emp` (
@@ -25,8 +25,8 @@ CREATE TABLE `emp` (
 	`comm` DECIMAL(7,2) NULL COMMENT '年终奖金',
 	`deptno` INT(11) NOT NULL COMMENT '部门编号',
 	PRIMARY KEY (`empno`) USING BTREE,
-	INDEX `FK_emp_dept` (`deptno`) USING BTREE,
-	CONSTRAINT `FK_emp_dept` FOREIGN KEY (`deptno`) REFERENCES `procedure_demo`.`dept` (`deptno`) ON UPDATE RESTRICT ON DELETE RESTRICT
+	INDEX `FK_emp_dept` (`deptno`) USING BTREE
+	-- CONSTRAINT `FK_emp_dept` FOREIGN KEY (`deptno`) REFERENCES `procedure_demo`.`dept` (`deptno`) ON UPDATE RESTRICT ON DELETE RESTRICT
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
@@ -47,13 +47,13 @@ insert into emp values
 insert into emp values
 (7782,'clark','manager',7839,'1981-06-09',2450,null,10);
 insert into emp values
-(7788,'scott','analyst',7566,'1987-07-13')-85,3000,null,20);
+(7788,'scott','analyst',7566,'1987-07-13',3000,null,20);
 insert into emp values
 (7839,'king','president',null,'1981-11-17',5000,null,10);
 insert into emp values
 (7844,'turner','salesman',7698,'1981-09-08',1500,0,30);
 insert into emp values
-(7876,'adams','clerk',7788,'1987-07-13')-51,1100,null,20);
+(7876,'adams','clerk',7788,'1987-07-13',1100,null,20);
 insert into emp values
 (7900,'james','clerk',7698,'1981-12-03',950,null,30);
 insert into emp values
